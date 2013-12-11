@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+- 2.0.0
+script:
+- psql -c 'create database test_postgres;' -U postgres
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rake
+bundler_args: --binstubs=./bundler_stubs
