@@ -10,7 +10,7 @@
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
 
-Portfolio::Application.config.secret_token = if Rails.env.development? || Rails.env.test?
+CpuAnalyst::Application.config.secret_token = if Rails.env.development? || Rails.env.test?
   ('x' * 30) # meets minimum requirement of 30 chars long
 else
   ENV['RAILS_SECRET_KEY_BASE']
