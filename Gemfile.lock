@@ -220,6 +220,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   coveralls
   figaro
+  haml
   jbuilder (~> 1.2)
   jquery-rails
   minitest-rails-capybara

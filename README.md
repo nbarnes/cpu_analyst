@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/nbarnes/cpu_analyst.png)](https://travis-ci.org/nbarnes/cpu_analyst)[![Code Climate](https://codeclimate.com/github/nbarnes/cpu_analyst.png)](https://codeclimate.com/github/nbarnes/cpu_analyst)
+
+
 CPU_Analyst
 ===========
 
@@ -21,11 +24,11 @@ the frame's CPU capacity.
 Effect of CPU Cores on Equipment
 ================================
 
-Each CPU core applied to an item reduces the mass and power costs of that
-item.  Each CPU beyond the 1st will have a reduced effect. A single CPU core
-will reduce the constraint costs of the item by -10%. Two CPU cores will
-reduce the costs by -19%.  An item may include 0 to 5 cores reducing
-constraint values (plus additional cores for ability items).  See
+Each CPU core applied to an item reduces the mass and power (or 'constraints')
+costs of that item.  Each CPU beyond the 1st will have a reduced effect. A
+single CPU core will reduce the constraint costs of the item by -10%. Two CPU
+cores will reduce the costs by -19%.  An item may include 0 to 5 cores
+reducing constraint values (plus additional cores for ability items).  See
 below for the complete list of % effects.
 
 1 core  = -10%; 2 cores = -19%; 3 cores = -27%; 4 cores = -34%; 5 cores = -41%
