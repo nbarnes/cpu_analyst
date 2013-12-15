@@ -1,13 +1,21 @@
 $ ->
+  $('#click_me').click ->
+    $('#total_mass_display').val("clicked")
+    console.log($('#total_mass_display').val())
+
   $('.gear_slot').change ->
-    recalculateTotalMassAndPower
+    console.log('gear slot changed')
+    recalculate_total_mass_and_power()
 
-recalculateTotalMassAndPower ->
-  $('.gear_slot_mass').each (mass_slot)
-    total_mass += $(i).text
-  $('.gear_slot_power').each (power_slot)
-    total_power += $(i).text
-  $(#total_mass).text = total_mass
-  $(#total_power).text = total_power
-
-
+  recalculate_total_mass_and_power = () ->
+    console.log('recalculateTotalMassAndPower called')
+    total_mass = ""
+    total_power = ""
+    $('.gear_slot_mass').each ->
+      $(this).val(100)
+      total_mass = total_mass + $(this).val()
+    $('.gear_slot_power').each ->
+      $(this).val(200)
+      total_power = total_power + $(this).val()
+    $('#total_mass_display').val( total_mass )
+    $('#total_power_display').val( total_power )
