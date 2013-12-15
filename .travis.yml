@@ -6,4 +6,11 @@ script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - bundle exec rake
-bundler_args: --binstubs=./bundler_stubs
+bundler_args: "--binstubs=./bundler_stubs"
+deploy:
+  provider: heroku
+  api_key:
+    secure: KyPr3v0/f1EPO8P6JVWfVp5lDr/3rAhqiabWwMwehabJa4c3P2EAZ/cnu6JnFop+uUOWkpSXHPIJ8zgsCwAJilm9lCMBdVnm8Z+xmfsvZHfmIyb8KmDLfbNN33d8oAEJoiIyZ8b9qP0Y06FHaMu+xfIZSW/yOEEX3l98fja/Dvc=
+  app: cpu-analyst
+  on:
+    repo: nbarnes/cpu_analyst
