@@ -1,0 +1,26 @@
+
+.slot
+  %table
+    %thead
+    %tbody
+      %tr
+        %td
+          %b
+            = title
+        %td
+        %td
+        %td
+      %tr
+        %td Mass
+        %td
+          %input.gear_slot.mass_slot
+        %td Power
+        %td
+          %input.gear_slot.power_slot
+      %tr
+        %td Adjusted Mass
+        %td
+          %input.adjusted_mass_slot.gear_slot{:disabled => true}
+        %td Adjusted Power
+        %td
+          %input.adjusted_power_slot.gear_slot{:disabled => true}

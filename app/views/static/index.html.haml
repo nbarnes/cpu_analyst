@@ -4,127 +4,16 @@
 %br
 %br
 
-.slot
-  Primary Weapon
-  %br
-  Mass:
-  %input#primary_weapon_mass.gear_slot.mass_slot
-  Power:
-  %input#primary_weapon_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#primary_weapon_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#primary_weapon_adjusted_mass.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  Secondary Weapon
-  %br
-  Mass:
-  %input#secondary_weapon_mass.gear_slot.mass_slot
-  Power:
-  %input#secondary_weapon_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#secondary_weapon_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#secondary_weapon_adjusted_mass.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  Ability 1
-  %br
-  Mass:
-  %input#ability_1_mass.gear_slot.mass_slot
-  Power:
-  %input#ability_1_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#ability_1_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#ability_1_adjusted_power.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  Ability 2
-  %br
-  Mass:
-  %input#ability_2_mass.gear_slot.mass_slot
-  Power:
-  %input#ability_2_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#ability_2_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#ability_2_adjusted_power.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  Ability 3
-  %br
-  Mass:
-  %input#ability_3_mass.gear_slot.mass_slot
-  Power:
-  %input#ability_4_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#ability_3_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#ability_3_adjusted_power.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  HKM Ability
-  %br
-  Mass:
-  %input#HKM_mass.gear_slot.mass_slot
-  Power:
-  %input#HKM_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#HKM_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#HKM_adjusted_power.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  Passive
-  %br
-  Mass:
-  %input#passive_mass.gear_slot.mass_slot
-  Power:
-  %input#passive_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#passive_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#passive_adjusted_power.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  Plating
-  %br
-  Mass:
-  %input#plating_mass.gear_slot.mass_slot
-  Power:
-  %input#plating_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#plating_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#plating_adjusted_power.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  Servos
-  %br
-  Mass:
-  %input#servos_mass.gear_slot.mass_slot
-  Power:
-  %input#servos_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#servos_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#servos_adjusted_power.adjusted_power_slot.gear_slot{:disabled => true}
-.slot
-  Jumpjets
-  %br
-  Mass:
-  %input#jumpjets_mass.gear_slot.mass_slot
-  Power:
-  %input#jumpjets_power.gear_slot.power_slot
-  %br
-  Adjusted Mass:
-  %input#jumpjets_adjusted_mass.adjusted_mass_slot.gear_slot{:disabled => true}
-  Adjusted Power:
-  %input#jumpjets_adjusted_power.adjusted_power_slot.gear_slot{:disabled => true}
-
+= render "partials/slot", :title => 'Primary Weapon'
+= render "partials/slot", :title => 'Secondary Weapon'
+= render "partials/slot", :title => 'Ability 1'
+= render "partials/slot", :title => 'Ability 2'
+= render "partials/slot", :title => 'Ability 3'
+= render "partials/slot", :title => 'HKM'
+= render "partials/slot", :title => 'Passive'
+= render "partials/slot", :title => 'Plating'
+= render "partials/slot", :title => 'Servos'
+= render "partials/slot", :title => 'Jumpjets'
 %br
 
 %span.total

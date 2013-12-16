@@ -22,9 +22,9 @@ $ ->
   # END RUN AT PAGE LOAD
 
   $('.mass_slot').change ->
-    $(this).parent().find('.adjusted_mass_slot').val( $(this).val() )
+    $(this).parents('.slot').find('.adjusted_mass_slot').val( $(this).val() )
     recalculate_total_mass_and_power()
 
   $('.power_slot').change ->
-    $(this).parent().find('.adjusted_power_slot').val( $(this).val() )
+    $(this).parents().find('.adjusted_power_slot').val( $(this).val() )
     recalculate_total_mass_and_power()
