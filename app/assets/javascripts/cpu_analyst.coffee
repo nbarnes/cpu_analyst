@@ -6,25 +6,25 @@ $ ->
   recalculate_total_mass_and_power = () ->
     total_mass = 0
     total_power = 0
-    $('.mass_slot').each ->
+    $('.adjusted_mass_slot').each ->
       total_mass = total_mass + parseInt( $(this).val() )
-    $('.power_slot').each ->
+    $('.adjusted_power_slot').each ->
       total_power = total_power + parseInt( $(this).val() )
     $('#total_mass_display').val( total_mass )
     $('#total_power_display').val( total_power )
 
   # RUN AT PAGE LOAD
 
-  $('.mass_slot').each ->
-    $(this).val(0)
-  $('.power_slot').each ->
+  $('.gear_slot').each ->
     $(this).val(0)
   recalculate_total_mass_and_power()
 
   # END RUN AT PAGE LOAD
 
-  $('.gear_slot').change ->
-    recalculate_total_mass_and_power()
-
   $('.mass_slot').change ->
     $(this).parent().find('.adjusted_mass_slot').val( $(this).val() )
+    recalculate_total_mass_and_power()
+
+  $('.power_slot').change ->
+    $(this).parent().find('.adjusted_power_slot').val( $(this).val() )
+    recalculate_total_mass_and_power()
