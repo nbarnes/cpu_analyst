@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nbarnes/cpu_analyst.png)](https://travis-ci.org/nbarnes/cpu_analyst)[![Code Climate](https://codeclimate.com/github/nbarnes/cpu_analyst.png)](https://codeclimate.com/github/nbarnes/cpu_analyst)
+[![Build Status](https://travis-ci.org/nbarnes/cpu_analyst.png)](https://travis-ci.org/nbarnes/cpu_analyst)[![Code Climate](https://codeclimate.com/github/nbarnes/cpu_analyst.png)](https://codeclimate.com/github/nbarnes/cpu_analyst)[![Security Status](http://rails-brakeman.com/nbarnes/cpu_analyst.png)](http://rails-brakeman.com/nbarnes/cpu_analyst)
 
 
 CPU_Analyst
