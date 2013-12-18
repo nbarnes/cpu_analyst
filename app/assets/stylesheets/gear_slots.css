@@ -4,7 +4,7 @@
 }
 
 td {
-  max-width:60px;
+  max-width:75px;
   width:auto;
   min-width:60px;
   white-space: nowrap;
@@ -12,4 +12,14 @@ td {
 
 input.gear_slot {
   width: 50px;
+  text-align: right;
+}
+
+.slot {
+  font-size: 125%;
+}
+
+.cpu_count_display {
+  width: 25px;
+  font: Calculator;
 }
