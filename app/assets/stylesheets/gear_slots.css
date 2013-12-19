@@ -23,3 +23,17 @@ input.gear_slot {
   width: 25px;
   font: Calculator;
 }
+
+.report_column {
+  width: 500px;
+  font-size: 125%;
+}
+
+.slot_column {
+}
+
+.page_layout_table {
+  left-margin: 5%;
+  right-margin: 5%;
+  width: 90%;
+}

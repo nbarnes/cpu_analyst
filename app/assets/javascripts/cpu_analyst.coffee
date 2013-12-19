@@ -23,7 +23,7 @@ $ ->
   $('.gear_slot').each ->
     $(this).val(0)
   $('.cpu_count_display').each ->
-    $(this).val(5)
+    $(this).val(0)
   recalculate_total_mass_and_power()
 
   # END RUN AT PAGE LOAD

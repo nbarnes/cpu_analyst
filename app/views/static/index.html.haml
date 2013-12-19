@@ -4,21 +4,43 @@
 %br
 %br
 
-= render "partials/slot", :title => 'Primary Weapon'
-= render "partials/slot", :title => 'Secondary Weapon'
-= render "partials/slot", :title => 'Ability 1'
-= render "partials/slot", :title => 'Ability 2'
-= render "partials/slot", :title => 'Ability 3'
-= render "partials/slot", :title => 'HKM'
-= render "partials/slot", :title => 'Passive'
-= render "partials/slot", :title => 'Plating'
-= render "partials/slot", :title => 'Servos'
-= render "partials/slot", :title => 'Jumpjets'
+%table.page_layout_table
+  %thead
+  %tbody
+    %tr
+      %td.report_column
+        %span.total
+          Total Mass:
+          %input#total_mass_display{:disabled => true}
+        %span.total
+          Total Power
+          %input#total_power_display{:disabled => true}
+      %td.slot_column
+        = render "partials/slot", :title => 'Primary Weapon'
+      %td.slot_column
+        = render "partials/slot", :title => 'Secondary Weapon'
+    %tr
+      %td.report_column
+      %td.slot_column
+        = render "partials/slot", :title => 'Ability 1'
+      %td.slot_column
+        = render "partials/slot", :title => 'Ability 2'
+    %tr
+      %td.report_column
+      %td.slot_column
+        = render "partials/slot", :title => 'Ability 3'
+      %td.slot_column
+        = render "partials/slot", :title => 'HKM'
+    %tr
+      %td.report_column
+      %td.slot_column
+        = render "partials/slot", :title => 'Passive'
+      %td.slot_column
+        = render "partials/slot", :title => 'Plating'
+    %tr
+      %td.report_column
+      %td.slot_column
+        = render "partials/slot", :title => 'Servos'
+      %td.slot_column
+        = render "partials/slot", :title => 'Jumpjets'
 %br
-
-%span.total
-  Total Mass:
-  %input#total_mass_display{:disabled => true}
-%span.total
-  Total Power
-  %input#total_power_display{:disabled => true}
