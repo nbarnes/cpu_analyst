@@ -11,12 +11,12 @@ $ ->
     total_mass = 0
     $('.adjusted_mass_field').each ->
       total_mass = total_mass + parseFloat( $(this).val() )
-    $('#total_mass_display').val( total_mass )
+    $('#total_mass').text( total_mass )
 
     total_power = 0
     $('.adjusted_power_field').each ->
       total_power = total_power + parseFloat( $(this).val() )
-    $('#total_power_display').val( total_power )
+    $('#total_power').text( Math.round( total_power * 100) / 100)
 
   # RUN AT PAGE LOAD
 

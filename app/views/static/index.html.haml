@@ -11,16 +11,22 @@
       %td.report_column
         %span.total
           Total Mass:
-          %input#total_mass_display{:disabled => true}
+          %span#total_mass 0
+          &#x2F
+          %span 3000
         %span.total
           Total Power
-          %input#total_power_display{:disabled => true}
+          %span#total_power 0
+          &#x2F
+          %span 3000
       %td.slot_column
         = render "partials/slot", :title => 'Primary Weapon'
       %td.slot_column
         = render "partials/slot", :title => 'Secondary Weapon'
     %tr
       %td.report_column
+
+
       %td.slot_column
         = render "partials/slot", :title => 'Ability 1'
       %td.slot_column
