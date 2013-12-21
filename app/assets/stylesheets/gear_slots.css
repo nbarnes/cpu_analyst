@@ -46,3 +46,7 @@ input.gear_slot {
   width: 90%;
   font-size: 125%;
 }
+
+.cpu_widget button {
+  font-size: 100%;
+}
