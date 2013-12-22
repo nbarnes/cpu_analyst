@@ -1,52 +1,36 @@
 
-.gear_slot {
-  width: 75px;
+button, input {
+  font-size: 100%;
 }
 
-td {
-  max-width:80px;
-  width:auto;
+input {
+  width: 95px;
+}
+
+table {
+  width: 100%;
+  /*
+  border-style: solid;
+  border-width: thin;
+  */
+  font-size: 125%;
   white-space: nowrap;
 }
 
-input.gear_slot {
-  width: 75px;
-  text-align: right;
-  font-size: 100%;
+td {
+  /*
+  border-style: solid;
+  border-width: thin;
+  */
+  max-width:80px;
+  white-space: nowrap;
 }
 
-.slot {
+.add_cpu_button {
+  float: right;
 }
 
 .cpu_count_display {
-  width: 25px;
   font-family: Digital-7;
   text-align: center;
-  font-size: 125%;
-}
-
-.report_column {
-  width: 48%;
-  font-size: 125%;
-}
-
-.total_display {
-  font-size: 100%;
-  width: 103px;
-  text-align: right;
-}
-
-.slot_column {
-  width: 32%;
-}
-
-.page_layout_table {
-  left-margin: 5%;
-  right-margin: 5%;
-  width: 90%;
-  font-size: 125%;
-}
-
-.cpu_widget button {
-  font-size: 100%;
 }

@@ -7,11 +7,10 @@ $ ->
   # wonky; if I want to reference this function in the onLoad, I need to
   # define it here first, or I get an 'Undefined is not a function' exception
   recalculate_total_mass_and_power = () ->
-    console.log 'hit recalc total mass and power'
     total_mass = 0
     $('.adjusted_mass_field').each ->
       total_mass = total_mass + parseFloat( $(this).val() )
-    $('#total_mass').text( total_mass )
+    $('#total_mass').text( Math.round( total_mass * 100) / 100)
 
     total_power = 0
     $('.adjusted_power_field').each ->
@@ -29,10 +28,10 @@ $ ->
   # END RUN AT PAGE LOAD
 
   $('.base_constraint_field').change ->
-    update_gear_slot($(this).parents('.slot'))
+    update_gear_slot($(this).parents('.slot_column'))
 
   $('.remove_cpu_button').click ->
-    gear_slot = $(this).parents('.slot')
+    gear_slot = $(this).parents('.slot_column')
     cpu_count_element = gear_slot.find('.cpu_count_display')
     current_CPU_count = parseInt( cpu_count_element.val() )
     if current_CPU_count > 0
@@ -40,7 +39,7 @@ $ ->
     update_gear_slot(gear_slot)
 
   $('.add_cpu_button').click ->
-    gear_slot = $(this).parents('.slot')
+    gear_slot = $(this).parents('.slot_column')
     cpu_count_element = gear_slot.find('.cpu_count_display')
     current_CPU_count = parseInt( cpu_count_element.val() )
     if current_CPU_count < 5

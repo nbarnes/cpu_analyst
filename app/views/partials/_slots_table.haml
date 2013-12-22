@@ -1,58 +1,28 @@
-%title CPU Analyst for Firefall
-
-%strong CPU Analyst for Firefall
-%br
-%br
-
-%table.page_layout_table
+%table.slots_table
   %thead
   %tbody
     %tr
-      %td.report_column
-        %div
-          %span.total
-            Total Mass:
-            %span#total_mass 0
-            &#x2F
-            %span 3000
-          %span.total
-            Total Power
-            %span#total_power 0
-            &#x2F
-            %span 3000
-        %div
-          Movement Mod:
-          %span#movement_mod_display 555%
-        %div
-          Free Power:
-          %span#unassigned_power_display 555
-
       %td.slot_column
         = render "partials/slot", :title => 'Primary Weapon'
       %td.slot_column
         = render "partials/slot", :title => 'Secondary Weapon'
     %tr
-      %td.report_column
       %td.slot_column
         = render "partials/slot", :title => 'Ability 1'
       %td.slot_column
         = render "partials/slot", :title => 'Ability 2'
     %tr
-      %td.report_column
       %td.slot_column
         = render "partials/slot", :title => 'Ability 3'
       %td.slot_column
         = render "partials/slot", :title => 'HKM'
     %tr
-      %td.report_column
       %td.slot_column
         = render "partials/slot", :title => 'Passive'
       %td.slot_column
         = render "partials/slot", :title => 'Plating'
     %tr
-      %td.report_column
       %td.slot_column
         = render "partials/slot", :title => 'Servos'
       %td.slot_column
         = render "partials/slot", :title => 'Jumpjets'
-%br

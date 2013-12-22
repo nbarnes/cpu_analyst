@@ -1,0 +1,67 @@
+
+.gear_slot {
+  width: 75px;
+}
+
+table {
+  border-style: solid;
+  border-width: medium;
+}
+
+td {
+  max-width:80px;
+  width:auto;
+  white-space: nowrap;
+  border-style: solid;
+  border-width: thin;
+}
+
+input.gear_slot {
+  width: 75px;
+  text-align: right;
+  font-size: 100%;
+}
+
+.slot {
+}
+
+.report_column {
+  width: 20%;
+  font-size: 125%;
+}
+
+.total_display {
+  font-size: 100%;
+  width: 103px;
+  text-align: right;
+}
+
+.slot_column {
+  width: 15%;
+}
+
+.page_layout_table {
+  left-margin: 5%;
+  right-margin: 5%;
+  width: 90%;
+  font-size: 125%;
+}
+
+.cpu_widget {
+  width: 88%;
+}
+
+.cpu_widget button {
+  font-size: 100%;
+}
+
+.add_cpu_button {
+  float: right;
+}
+
+.cpu_count_display {
+  width: 50px;
+  font-family: Digital-7;
+  text-align: center;
+  font-size: 125%;
+}
