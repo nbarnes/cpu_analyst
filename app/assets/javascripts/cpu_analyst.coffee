@@ -19,7 +19,7 @@ $ ->
 
   # RUN AT PAGE LOAD
 
-  $('.gear_slot').each ->
+  $('.constraint_field').each ->
     $(this).val(0)
   $('.cpu_count_display').each ->
     $(this).val(0)
@@ -28,10 +28,10 @@ $ ->
   # END RUN AT PAGE LOAD
 
   $('.base_constraint_field').change ->
-    update_gear_slot($(this).parents('.slot_column'))
+    update_gear_slot($(this).parents('.gear_slot'))
 
   $('.remove_cpu_button').click ->
-    gear_slot = $(this).parents('.slot_column')
+    gear_slot = $(this).parents('.gear_slot')
     cpu_count_element = gear_slot.find('.cpu_count_display')
     current_CPU_count = parseInt( cpu_count_element.val() )
     if current_CPU_count > 0
@@ -39,7 +39,7 @@ $ ->
     update_gear_slot(gear_slot)
 
   $('.add_cpu_button').click ->
-    gear_slot = $(this).parents('.slot_column')
+    gear_slot = $(this).parents('.gear_slot')
     cpu_count_element = gear_slot.find('.cpu_count_display')
     current_CPU_count = parseInt( cpu_count_element.val() )
     if current_CPU_count < 5
@@ -58,3 +58,41 @@ $ ->
     adjusted_power_field.val ( base_power * CPU_mods[CPU_count] )
 
     recalculate_total_mass_and_power()
+
+  $('.add_cpu_for_mass').click ->
+    console.log("add_cpu_for_mass clicked")
+    gear_slots = $(this).parents('#page_layout_table').find('.gear_slot')
+    best_slot_for_CPU = gear_slots.first()
+    gear_slots.each ->
+      if mass_saved_for_next_CPU_on_slot(this) > mass_saved_for_next_CPU_on_slot(best_slot_for_CPU)
+        best_slot_for_CPU = this
+    $(best_slot_for_CPU).find('.add_cpu_button').click()
+
+
+  $('.add_cpu_for_power').click ->
+    console.log("add_cpu_for_power clicked")
+    gear_slots = $(this).parents('#page_layout_table').find('.gear_slot')
+    best_slot_for_CPU = gear_slots.first()
+    gear_slots.each ->
+      if power_saved_for_next_CPU_on_slot(this) > power_saved_for_next_CPU_on_slot(best_slot_for_CPU)
+        console.log("bob")
+        best_slot_for_CPU = this
+    $(best_slot_for_CPU).find('.add_cpu_button').click()
+
+  mass_saved_for_next_CPU_on_slot = (gear_slot) ->
+    base_mass = parseFloat( $(gear_slot).find('.base_mass_field').val() )
+    CPU_count = parseInt( $(gear_slot).find('.cpu_count_display').val() )
+    if CPU_count < 5
+      next_CPU_count = CPU_count + 1
+    else
+      next_CPU_count = CPU_count
+    (base_mass * CPU_mods[CPU_count]) - (base_mass * CPU_mods[next_CPU_count])
+
+  power_saved_for_next_CPU_on_slot = (gear_slot) ->
+    base_power = parseFloat( $(gear_slot).find('.base_power_field').val() )
+    CPU_count = parseInt( $(gear_slot).find('.cpu_count_display').val() )
+    if CPU_count < 5
+      next_CPU_count = CPU_count + 1
+    else
+      next_CPU_count = CPU_count
+    (base_power * CPU_mods[CPU_count]) - (base_power * CPU_mods[next_CPU_count])

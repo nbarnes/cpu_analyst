@@ -1,10 +1,10 @@
 
 button, input {
-  font-size: 100%;
+  /* font-size: 100%; */
 }
 
 input {
-  width: 95px;
+  width: 95%;
 }
 
 table {
@@ -13,7 +13,7 @@ table {
   border-style: solid;
   border-width: thin;
   */
-  font-size: 125%;
+  font-size: 90 %;
   white-space: nowrap;
 }
 
