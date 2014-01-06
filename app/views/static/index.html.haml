@@ -16,16 +16,16 @@
             &#x2F
             %span 2000
           %span#movement_mod
-            %span#movement_mod_display 120%
+            %span#movement_mod_display
             %span Speed Multiplier
         %div
           %span#total_power_display
             Total Power
             %span#total_power 0
             &#x2F
-            %span 1000
+            %span 2000
           %span#excess_power
-            %span#excess_power_display 2000
+            %span#excess_power_display
             %span Excess Power
         %div.optomize_buttons
           %button.add_cpu_for_mass{type: "button"} Add CPU for Mass
@@ -54,6 +54,9 @@
         = render "partials/gear_slot", :title => 'Plating'
     %tr
       %td.report_cell
+        %button#reset_all_button{type: "button"} Reset All
+        %button#reset_CPUs_button{type: "button"} Reset CPUs
+        %button#load_default_values{type: "button"} Load Default Values
       %td.gear_slot
         = render "partials/gear_slot", :title => 'Servos'
       %td.gear_slot

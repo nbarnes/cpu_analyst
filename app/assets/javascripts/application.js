@@ -14,4 +14,7 @@
 //= require jquery.cookie
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require at_page_load.js.coffee
+//= require gear_slots.js
+//= require resets.js
+//= require cookies.js
