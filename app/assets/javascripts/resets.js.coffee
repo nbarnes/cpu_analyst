@@ -1,16 +1,16 @@
 
 $ ->
 
-  default_values = [[80, 250],
-                    [60, 150],
-                    [200, 70],
-                    [70, 100],
-                    [275, 40],
-                    [150, 100],
-                    [200, 80],
-                    [225, 20],
-                    [250, 50],
-                    [350, 60]]
+  default_values = [[80, 250, 0],
+                    [60, 150, 0],
+                    [200, 70, 0],
+                    [70, 100, 0],
+                    [275, 40, 0],
+                    [150, 100, 0],
+                    [200, 80, 0],
+                    [225, 20, 0],
+                    [250, 50, 0],
+                    [350, 60, 0]]
 
   $('#reset_all_button').click ->
     $('.constraint_field').each ->
@@ -29,5 +29,6 @@ $ ->
     $('.gear_slot').each ->
       $(this).find('.base_mass_field').val(default_values[i][0])
       $(this).find('.base_power_field').val(default_values[i][1])
+      $(this).find('.cpu_count_display').val(default_values[i][2])
       i++
       update_gear_slot($(this))
