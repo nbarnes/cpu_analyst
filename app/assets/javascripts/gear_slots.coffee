@@ -3,8 +3,55 @@ $ ->
 
   CPU_mods = [1, 0.90, 0.81, 0.73, 0.66, 0.59]
 
-  movement_mods =       [0.5, 0.7,  0.8,  0.9,  0.95, 1,    1.05, 1.1,  1.15, 1.2]
-  movement_mod_masses = [1.0, 0.94, 0.89, 0.84, 0.79, 0.74, 0.69, 0.64, 0.59, 0.49]
+  movement_mods = [[1.20, 0.49],
+                   [1.15, 0.59],
+                   [1.10, 0.64],
+                   [1.05, 0.69],
+                   [1.00, 0.74],
+                   [0.95, 0.79],
+                   [0.90, 0.84],
+                   [0.80, 0.89],
+                   [0.70, 0.94],
+                   [0.50, 1.00]]
+
+  # Declared up here because CoffeeScript's load order is
+  # wonky; if I want to reference this function in the onLoad, I need to
+  # define it here first, or I get an 'undefined is not a function' exception
+  update_movement_mod = (current_mass) ->
+    maximum_mass = 2000
+    mass_ratio = current_mass / maximum_mass
+    movement_mod = 1.20
+
+    for mod in movement_mods
+      if mass_ratio >= mod[1]
+        movement_mod = mod[0]
+
+    $('#movement_mod_display').html( (movement_mod * 100).toFixed(2) + "%")
+
+  # Declared up here because CoffeeScript's load order is
+  # wonky; if I want to reference this function in the onLoad, I need to
+  # define it here first, or I get an 'undefined is not a function' exception
+  recalculate_total_mass_and_power = () ->
+    total_mass = 0
+    $('.adjusted_mass_field').each ->
+      total_mass = total_mass + parseFloat( $(this).val() )
+    $('#total_mass').text( Math.round( total_mass * 100) / 100)
+    update_movement_mod(total_mass)
+    total_power = 0
+    $('.adjusted_power_field').each ->
+      total_power = total_power + parseFloat( $(this).val() )
+    $('#total_power').text( Math.round( total_power * 100) / 100)
+    $('#excess_power_display').html(2000 - total_power)
+
+  # RUN AT PAGE LOAD
+
+  $('.constraint_field').each ->
+    $(this).val(0)
+  $('.cpu_count_display').each ->
+    $(this).val(0)
+  recalculate_total_mass_and_power()
+
+  # END RUN AT PAGE LOAD
 
   $('.base_constraint_field').change ->
     update_gear_slot($(this).parents('.gear_slot'))
@@ -45,11 +92,6 @@ $ ->
       if mass_saved_for_next_CPU_on_slot(this) > mass_saved_for_next_CPU_on_slot(best_slot_for_CPU)
         best_slot_for_CPU = this
     $(best_slot_for_CPU).find('.add_cpu_button').click()
-
-    ###########
-    $.cookie('cookie', 'bob')
-    alert($.cookie('cookie'))
-    ###########
 
   $('.add_cpu_for_power').click ->
     gear_slots = $(this).parents('#page_layout_table').find('.gear_slot')
