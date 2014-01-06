@@ -1,6 +1,9 @@
 
 $ ->
 
+  window.maximum_mass = 2000
+  window.maximum_power = 1000
+
   window.CPU_mods = [1, 0.90, 0.81, 0.73, 0.66, 0.59]
 
   movement_mods = [[1.20, 0.49],
@@ -15,7 +18,6 @@ $ ->
                    [0.50, 1.00]]
 
   update_movement_mod = (current_mass) ->
-    maximum_mass = 2000
     mass_ratio = current_mass / maximum_mass
     movement_mod = 1.20
 
@@ -38,7 +40,7 @@ $ ->
     $('.adjusted_power_field').each ->
       total_power = total_power + parseFloat( $(this).val() )
     $('#total_power').text( Math.round( total_power * 100) / 100)
-    $('#excess_power_display').html( (2000 - total_power).toFixed(2) )
+    $('#excess_power_display').html( (maximum_power - total_power).toFixed(2) )
 
   # RUN AT PAGE LOAD
 
