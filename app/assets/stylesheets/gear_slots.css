@@ -26,6 +26,10 @@ td {
   white-space: nowrap;
 }
 
+.remove_cpu_button {
+  float: left;
+}
+
 .add_cpu_button {
   float: right;
 }

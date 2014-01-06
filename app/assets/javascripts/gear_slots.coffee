@@ -3,29 +3,8 @@ $ ->
 
   CPU_mods = [1, 0.90, 0.81, 0.73, 0.66, 0.59]
 
-  # Declared way up here in the file because CoffeeScript's load order is
-  # wonky; if I want to reference this function in the onLoad, I need to
-  # define it here first, or I get an 'Undefined is not a function' exception
-  recalculate_total_mass_and_power = () ->
-    total_mass = 0
-    $('.adjusted_mass_field').each ->
-      total_mass = total_mass + parseFloat( $(this).val() )
-    $('#total_mass').text( Math.round( total_mass * 100) / 100)
-
-    total_power = 0
-    $('.adjusted_power_field').each ->
-      total_power = total_power + parseFloat( $(this).val() )
-    $('#total_power').text( Math.round( total_power * 100) / 100)
-
-  # RUN AT PAGE LOAD
-
-  $('.constraint_field').each ->
-    $(this).val(0)
-  $('.cpu_count_display').each ->
-    $(this).val(0)
-  recalculate_total_mass_and_power()
-
-  # END RUN AT PAGE LOAD
+  movement_mods =       [0.5, 0.7,  0.8,  0.9,  0.95, 1,    1.05, 1.1,  1.15, 1.2]
+  movement_mod_masses = [1.0, 0.94, 0.89, 0.84, 0.79, 0.74, 0.69, 0.64, 0.59, 0.49]
 
   $('.base_constraint_field').change ->
     update_gear_slot($(this).parents('.gear_slot'))
@@ -60,7 +39,6 @@ $ ->
     recalculate_total_mass_and_power()
 
   $('.add_cpu_for_mass').click ->
-    console.log("add_cpu_for_mass clicked")
     gear_slots = $(this).parents('#page_layout_table').find('.gear_slot')
     best_slot_for_CPU = gear_slots.first()
     gear_slots.each ->
@@ -68,9 +46,12 @@ $ ->
         best_slot_for_CPU = this
     $(best_slot_for_CPU).find('.add_cpu_button').click()
 
+    ###########
+    $.cookie('cookie', 'bob')
+    alert($.cookie('cookie'))
+    ###########
 
   $('.add_cpu_for_power').click ->
-    console.log("add_cpu_for_power clicked")
     gear_slots = $(this).parents('#page_layout_table').find('.gear_slot')
     best_slot_for_CPU = gear_slots.first()
     gear_slots.each ->

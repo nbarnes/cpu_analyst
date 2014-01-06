@@ -13,6 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'coveralls', require: false
 gem 'haml'
+gem 'jquery-cookie-rails'
 
 gem "figaro"
 
