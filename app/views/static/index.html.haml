@@ -9,33 +9,32 @@
   %tbody
     %tr
       %td.report_cell
-        %div
-          %span#total_mass_display
-            Total Mass:
-            %span#total_mass 0
-            &#x2F
-            %span 2000
+        %div#total_mass_display
+          Total Mass:
+          %span#total_mass 0
+          &#x2F 2000
           %span#movement_mod
             %span#movement_mod_display
             %span Speed Multiplier
-        %div
-          %span#total_power_display
-            Total Power
-            %span#total_power 0
-            &#x2F
-            %span 1000
+        %div#total_mass_display
+          Total Power:
+          %span#total_power 0
+          &#x2F 1000
           %span#excess_power
             %span#excess_power_display
             %span Excess Power
-        %div.optomize_buttons
-          %button.add_cpu_for_mass{type: "button"} Add CPU for Mass
-          %button.add_cpu_for_power{type: "button"} Add CPU for Power
+        %div#total_CPUs_display
+          CPUs Used:
+          %span#total_CPUs 0
+          &#x2F 18
+
       %td.gear_slot
         = render "partials/gear_slot", :title => 'Primary Weapon'
       %td.gear_slot
         = render "partials/gear_slot", :title => 'Secondary Weapon'
     %tr
       %td.report_cell
+        %div#cpu_images_area
       %td.gear_slot
         = render "partials/gear_slot", :title => 'Ability 1'
       %td.gear_slot
@@ -54,6 +53,10 @@
         = render "partials/gear_slot", :title => 'Plating'
     %tr
       %td.report_cell
+        %div#optomize_buttons
+          %button#add_cpu_for_mass{type: "button"} Add CPU for Mass
+          %button#add_cpu_for_power{type: "button"} Add CPU for Power
+          %button#add_cpu_image{type: "button"} Add CPU Image
         %button#reset_all_button{type: "button"} Reset All
         %button#reset_CPUs_button{type: "button"} Reset CPUs
         %button#load_default_values{type: "button"} Load Default Values
@@ -62,3 +65,7 @@
       %td.gear_slot
         = render "partials/gear_slot", :title => 'Jumpjets'
 %br
+
+%div#cpu_image_source{ style: 'display: none;' }
+  %span.cpu_image
+    =image_tag ('computer_chip.gif')

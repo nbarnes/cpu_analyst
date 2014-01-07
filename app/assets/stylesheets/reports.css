@@ -7,7 +7,11 @@
 #total_power_display {
   float: left;
   margin-left: 2%;
+}
 
+#total_CPUs_display {
+  float: left;
+  margin-left: 2%;
 }
 
 #movement_mod {
