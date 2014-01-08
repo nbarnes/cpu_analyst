@@ -6,20 +6,18 @@ $ ->
 
   $('.remove_cpu_button').click ->
     gear_slot = $(this).parents('.gear_slot')
-    cpu_count_element = gear_slot.find('.cpu_count_display')
     current_CPU_count = gear_slot.data('cpu_count')
     if current_CPU_count > 0
-      cpu_count_element.val( current_CPU_count - 1 )
       gear_slot.data('cpu_count', current_CPU_count - 1 )
+      remove_cpu_image(gear_slot)
     update_gear_slot(gear_slot)
 
   $('.add_cpu_button').click ->
     gear_slot = $(this).parents('.gear_slot')
-    cpu_count_element = gear_slot.find('.cpu_count_display')
     current_CPU_count = gear_slot.data('cpu_count')
     if current_CPU_count < 5
-      cpu_count_element.val( current_CPU_count + 1 )
       gear_slot.data('cpu_count', current_CPU_count + 1 )
+      add_cpu_image(gear_slot)
     update_gear_slot(gear_slot)
 
   window.update_gear_slot = (gear_slot) ->

@@ -1,11 +1,5 @@
 
-%table.cpu_widget
-  %thead
-  %tbody
-    %tr
-      %td.remove_cpu_column
-        %button.remove_cpu_button{type: "button"} -
-      %td.cpu_count_display_column
-        %input.cpu_count_display{:disabled => true}
-      %td.add_cpu_column
-        %button.add_cpu_button{type: "button"} +
+%div.cpu_widget
+  %button.remove_cpu_button{type: "button"} -
+  %span.cpu_images_display
+  %button.add_cpu_button{type: "button"} +

@@ -25,7 +25,7 @@ $ ->
       if mass_ratio >= mod[1]
         movement_mod = mod[0]
 
-    $('#movement_mod_display').html( (movement_mod * 100).toFixed(2) + "%")
+    $('#movement_mod_display').html( (movement_mod * 100).toFixed(0) + "%")
 
   # Declared up here because CoffeeScript's load order is
   # wonky; if I want to reference this function in the onLoad, I need to
@@ -43,17 +43,19 @@ $ ->
     $('.cpu_count_display').each ->
       total_CPUs = total_CPUs + parseInt( $(this).val() )
     $('#total_power').text( Math.round(total_power * 100) / 100)
-    $('#excess_power_display').html( (maximum_power - total_power).toFixed(2) )
+    $('#excess_power_display').html( (maximum_power - total_power).toFixed(0) )
     $('#total_CPUs').html( total_CPUs )
+
+  window.reset_all_fields = () ->
+    $('.constraint_field').each ->
+      $(this).val(0.toFixed(2))
+    $('.gear_slot').each ->
+      $(this).data('cpu_count', 0)
+      remove_all_cpu_images($(this))
+    recalculate_total_mass_and_power()
 
   # RUN AT PAGE LOAD
 
-  $('.gear_slot').each ->
-    $(this).data('cpu_count', 0)
-  $('.constraint_field').each ->
-    $(this).val(0)
-  $('.cpu_count_display').each ->
-    $(this).val(0)
-  recalculate_total_mass_and_power()
+  reset_all_fields()
 
   # END RUN AT PAGE LOAD

@@ -26,6 +26,11 @@ td {
   white-space: nowrap;
 }
 
+.cpu_widget {
+  margin-top: 5px;
+  height: 30px;
+}
+
 .remove_cpu_button {
   float: left;
 }
@@ -34,7 +39,6 @@ td {
   float: right;
 }
 
-.cpu_count_display {
-  font-family: Digital-7;
-  text-align: center;
+.cpu_images_display {
+  margin-left: 13%;
 }
