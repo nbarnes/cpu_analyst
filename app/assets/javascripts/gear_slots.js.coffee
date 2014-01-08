@@ -16,8 +16,11 @@ $ ->
     gear_slot = $(this).parents('.gear_slot')
     current_CPU_count = gear_slot.data('cpu_count')
     if current_CPU_count < 5
-      gear_slot.data('cpu_count', current_CPU_count + 1 )
-      add_cpu_image(gear_slot)
+      if current_global_cpu_count() < 18
+        gear_slot.data('cpu_count', current_CPU_count + 1 )
+        add_cpu_image(gear_slot)
+      else
+        $("#total_CPUs_display").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
     update_gear_slot(gear_slot)
 
   window.update_gear_slot = (gear_slot) ->
@@ -66,4 +69,3 @@ $ ->
     else
       next_CPU_count = CPU_count
     (base_power * CPU_mods[CPU_count]) - (base_power * CPU_mods[next_CPU_count])
-

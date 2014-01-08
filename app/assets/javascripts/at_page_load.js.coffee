@@ -17,6 +17,12 @@ $ ->
                    [0.70, 0.89],
                    [0.50, 0.94]]
 
+  window.current_global_cpu_count = () ->
+    total_CPUs = 0
+    $('.gear_slot').each ->
+      total_CPUs = total_CPUs + $(this).data('cpu_count')
+    return total_CPUs
+
   update_movement_mod = (current_mass) ->
     mass_ratio = current_mass / maximum_mass
     movement_mod = 1.20
@@ -39,12 +45,9 @@ $ ->
     total_power = 0
     $('.adjusted_power_field').each ->
       total_power = total_power + parseFloat( $(this).val() )
-    total_CPUs = 0
-    $('.gear_slot').each ->
-      total_CPUs = total_CPUs + $(this).data('cpu_count')
     $('#total_power').text( Math.round(total_power * 100) / 100)
     $('#excess_power_display').html( (maximum_power - total_power).toFixed(0) )
-    $('#total_CPUs').html( total_CPUs )
+    $("#total_CPUs").html(current_global_cpu_count())
 
   window.reset_all_fields = () ->
     $('.constraint_field').each ->

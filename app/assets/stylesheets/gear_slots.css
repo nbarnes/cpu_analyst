@@ -17,7 +17,7 @@ table {
 }
 
 .gear_slot {
-  border-style: inset;
+  border-style: ridge;
   border-width: thick;
   border-color: gray;
 }

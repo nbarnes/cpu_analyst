@@ -12,6 +12,9 @@ $ ->
     new_image.show()
 
   window.add_cpu_images = (gear_slot, num) ->
+    remove_all_cpu_images(gear_slot)
+    for index in [0...num]
+      add_cpu_image(gear_slot)
 
   window.remove_all_cpu_images = (gear_slot) ->
     gear_slot.find('.cpu_image').remove()
