@@ -14,7 +14,12 @@ table {
   border-width: thin;
   */
   font-size: 90%;
-  white-space: nowrap;
+}
+
+.gear_slot {
+  border-style: inset;
+  border-width: thick;
+  border-color: gray;
 }
 
 td {
@@ -33,12 +38,14 @@ td {
 
 .remove_cpu_button {
   float: left;
+  margin-left: 20px;
 }
 
 .add_cpu_button {
   float: right;
+  margin-right: 20px;
 }
 
 .cpu_images_display {
-  margin-left: 13%;
+  margin-left: 4%;
 }

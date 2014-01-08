@@ -13,16 +13,18 @@
           Total Mass:
           %span#total_mass 0
           &#x2F 2000
-          %span#movement_mod
-            %span#movement_mod_display
-            %span Speed Multiplier
-        %div#total_mass_display
+        %br
+        %div#movement_mod
+          %span#movement_mod_display
+          %span Speed Multiplier
+        %div#total_power_display
           Total Power:
           %span#total_power 0
           &#x2F 1000
-          %span#excess_power
-            %span#excess_power_display
-            %span Excess Power
+        %br
+        %div#excess_power
+          %span#excess_power_display
+          %span Excess Power
         %div#total_CPUs_display
           CPUs Used:
           %span#total_CPUs 0
@@ -57,6 +59,7 @@
           %button#add_cpu_for_power{type: "button"} Add CPU for Power
         %button#reset_all_button{type: "button"} Reset All
         %button#reset_CPUs_button{type: "button"} Reset CPUs
+        %br
         %button#load_default_values{type: "button"} Load Default Values
       %td.gear_slot
         = render "partials/gear_slot", :title => 'Servos'

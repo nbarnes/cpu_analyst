@@ -40,8 +40,8 @@ $ ->
     $('.adjusted_power_field').each ->
       total_power = total_power + parseFloat( $(this).val() )
     total_CPUs = 0
-    $('.cpu_count_display').each ->
-      total_CPUs = total_CPUs + parseInt( $(this).val() )
+    $('.gear_slot').each ->
+      total_CPUs = total_CPUs + $(this).data('cpu_count')
     $('#total_power').text( Math.round(total_power * 100) / 100)
     $('#excess_power_display').html( (maximum_power - total_power).toFixed(0) )
     $('#total_CPUs').html( total_CPUs )
