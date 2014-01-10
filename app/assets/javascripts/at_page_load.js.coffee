@@ -44,7 +44,7 @@ $ ->
     adjusted_power_field = gear_slot.find('.adjusted_power_field')
     adjusted_power_field.val ( (base_power * CPU_mods[CPU_count]).toFixed(2) )
 
-    $.cookie('frame_data', JSON.stringify(build_frame_data()))
+    # $.cookie('CPU_Analyst_frame_data', JSON.stringify(build_frame_data()))
     recalculate_total_mass_and_power()
 
   window.recalculate_total_mass_and_power = () ->
@@ -75,6 +75,18 @@ $ ->
     set_CPU_images(gear_slot, num)
     update_gear_slot(gear_slot)
 
+  window.build_frame_data = () ->
+    frame_data = new Object()
+    $('.gear_slot').each ->
+      mass_tag = $(this).attr('id') + '-base_mass_field'
+      power_tag = $(this).attr('id') + '-base_power_field'
+      cpu_tag = $(this).attr('id') + '-CPUs'
+
+      frame_data[mass_tag] = $(this).find('.base_mass_field').val()
+      frame_data[power_tag] = $(this).find('.base_power_field').val()
+      frame_data[cpu_tag] = $(this).data('cpu_count')
+    return frame_data
+
   window.populate_page_from_object = (frame_data) ->
     for own key, value of frame_data
       split_key = key.split('-')
@@ -92,6 +104,6 @@ $ ->
   # RUN AT PAGE LOAD
 
   reset_all_fields()
-  populate_page_from_object(JSON.parse( $.cookie('frame_data') ))
+  populate_page_from_object(JSON.parse( $.cookie('CPU_Analyst_frame_data') ))
 
   # END RUN AT PAGE LOAD
