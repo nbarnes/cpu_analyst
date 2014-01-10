@@ -44,19 +44,23 @@ $ ->
     adjusted_power_field = gear_slot.find('.adjusted_power_field')
     adjusted_power_field.val ( (base_power * CPU_mods[CPU_count]).toFixed(2) )
 
+    $.cookie('frame_data', JSON.stringify(build_frame_data()))
     recalculate_total_mass_and_power()
 
   window.recalculate_total_mass_and_power = () ->
+
     total_mass = 0
     $('.adjusted_mass_field').each ->
       total_mass = total_mass + parseFloat( $(this).val() )
-    $('#total_mass').text( Math.round(total_mass * 100) / 100)
+    $('#total_mass').text( total_mass.toFixed(2) )
     update_movement_mod(total_mass)
+
     total_power = 0
     $('.adjusted_power_field').each ->
       total_power = total_power + parseFloat( $(this).val() )
-    $('#total_power').text( Math.round(total_power * 100) / 100)
+    $('#total_power').text( total_power.toFixed(0) )
     $('#excess_power_display').html( (maximum_power - total_power).toFixed(0) )
+
     $("#total_CPUs").html(current_global_cpu_count())
 
   window.reset_all_fields = () ->
@@ -71,8 +75,23 @@ $ ->
     set_CPU_images(gear_slot, num)
     update_gear_slot(gear_slot)
 
+  window.populate_page_from_object = (frame_data) ->
+    for own key, value of frame_data
+      split_key = key.split('-')
+      slot_id = split_key[0]
+      constraint_id = split_key[1]
+      gear_slot = $("#" + slot_id)
+      if (constraint_id == 'CPUs')
+        set_CPUs(gear_slot, value)
+      else
+        field_selector = "#" + slot_id + " ." + constraint_id
+        $(field_selector).val(value)
+    $('.gear_slot').each ->
+      update_gear_slot($(this))
+
   # RUN AT PAGE LOAD
 
   reset_all_fields()
+  populate_page_from_object(JSON.parse( $.cookie('frame_data') ))
 
   # END RUN AT PAGE LOAD

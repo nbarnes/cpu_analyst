@@ -26,5 +26,5 @@ $ ->
       $(this).find('.base_mass_field').val( default_values[i][0].toFixed(2) )
       $(this).find('.base_power_field').val( default_values[i][1].toFixed(2) )
       set_CPUs($(this), default_values[i][2])
-      i++
       update_gear_slot($(this))
+      i++
