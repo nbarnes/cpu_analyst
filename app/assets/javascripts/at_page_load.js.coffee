@@ -33,9 +33,19 @@ $ ->
 
     $('#movement_mod_display').html( (movement_mod * 100).toFixed(0) + "%")
 
-  # Declared up here because CoffeeScript's load order is
-  # wonky; if I want to reference this function in the onLoad, I need to
-  # define it here first, or I get an 'undefined is not a function' exception
+  window.update_gear_slot = (gear_slot) ->
+    CPU_count = gear_slot.data('cpu_count')
+
+    base_mass = gear_slot.find('.base_mass_field').val()
+    adjusted_mass_field = gear_slot.find('.adjusted_mass_field')
+    adjusted_mass_field.val ( (base_mass * CPU_mods[CPU_count]).toFixed(2) )
+
+    base_power = gear_slot.find('.base_power_field').val()
+    adjusted_power_field = gear_slot.find('.adjusted_power_field')
+    adjusted_power_field.val ( (base_power * CPU_mods[CPU_count]).toFixed(2) )
+
+    recalculate_total_mass_and_power()
+
   window.recalculate_total_mass_and_power = () ->
     total_mass = 0
     $('.adjusted_mass_field').each ->
@@ -53,9 +63,13 @@ $ ->
     $('.constraint_field').each ->
       $(this).val(0.toFixed(2))
     $('.gear_slot').each ->
-      $(this).data('cpu_count', 0)
-      remove_all_cpu_images($(this))
+      set_CPUs($(this), 0)
     recalculate_total_mass_and_power()
+
+  window.set_CPUs = (gear_slot, num) ->
+    gear_slot.data('cpu_count', num)
+    set_CPU_images(gear_slot, num)
+    update_gear_slot(gear_slot)
 
   # RUN AT PAGE LOAD
 

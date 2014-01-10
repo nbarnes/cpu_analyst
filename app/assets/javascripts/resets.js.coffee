@@ -17,8 +17,7 @@ $ ->
 
   $('#reset_CPUs_button').click ->
     $('.gear_slot').each ->
-      $(this).data('cpu_count', 0)
-      remove_all_cpu_images($(this))
+      set_CPUs($(this), 0)
       update_gear_slot($(this))
 
   $('#load_default_values').click ->
@@ -26,8 +25,6 @@ $ ->
     $('.gear_slot').each ->
       $(this).find('.base_mass_field').val( default_values[i][0].toFixed(2) )
       $(this).find('.base_power_field').val( default_values[i][1].toFixed(2) )
-      $(this).data('cpu_count', default_values[i][2])
-      add_cpu_images($(this), default_values[i][2])
+      set_CPUs($(this), default_values[i][2])
       i++
       update_gear_slot($(this))
-

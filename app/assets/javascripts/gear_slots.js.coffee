@@ -9,7 +9,7 @@ $ ->
     current_CPU_count = gear_slot.data('cpu_count')
     if current_CPU_count > 0
       gear_slot.data('cpu_count', current_CPU_count - 1 )
-      remove_cpu_image(gear_slot)
+      remove_CPU_image(gear_slot)
     update_gear_slot(gear_slot)
 
   $('.add_cpu_button').click ->
@@ -18,23 +18,10 @@ $ ->
     if current_CPU_count < 5
       if current_global_cpu_count() < 18
         gear_slot.data('cpu_count', current_CPU_count + 1 )
-        add_cpu_image(gear_slot)
+        add_CPU_image(gear_slot)
       else
         $("#total_CPUs_display").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
     update_gear_slot(gear_slot)
-
-  window.update_gear_slot = (gear_slot) ->
-    CPU_count = gear_slot.data('cpu_count')
-
-    base_mass = gear_slot.find('.base_mass_field').val()
-    adjusted_mass_field = gear_slot.find('.adjusted_mass_field')
-    adjusted_mass_field.val ( (base_mass * CPU_mods[CPU_count]).toFixed(2) )
-
-    base_power = gear_slot.find('.base_power_field').val()
-    adjusted_power_field = gear_slot.find('.adjusted_power_field')
-    adjusted_power_field.val ( (base_power * CPU_mods[CPU_count]).toFixed(2) )
-
-    recalculate_total_mass_and_power()
 
   $('#add_cpu_for_mass').click ->
     gear_slots = $(this).parents('#page_layout_table').find('.gear_slot')

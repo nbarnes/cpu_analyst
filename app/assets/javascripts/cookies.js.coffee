@@ -20,8 +20,7 @@ $ ->
       constraint_id = split_key[1]
       gear_slot = $("#" + slot_id)
       if (constraint_id == 'CPUs')
-        gear_slot.data("cpu_count", value)
-        add_cpu_images(gear_slot, value)
+        set_CPUs(gear_slot, value)
       else
         field_selector = "#" + slot_id + " ." + constraint_id
         $(field_selector).val(value)
