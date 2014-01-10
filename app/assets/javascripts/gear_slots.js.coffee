@@ -2,6 +2,8 @@
 $ ->
 
   $('.base_constraint_field').change ->
+    new_val = parseFloat($(this).val())
+    $(this).val(new_val.toFixed(2))
     update_gear_slot($(this).parents('.gear_slot'))
 
   $('.remove_cpu_button').click ->
