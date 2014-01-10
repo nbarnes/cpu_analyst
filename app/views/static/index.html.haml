@@ -30,27 +30,29 @@
           %span#total_CPUs 0
           &#x2F 18
 
-      %td.gear_slot
+      %td.gear_slot#primary_weapon
         = render "partials/gear_slot", :title => 'Primary Weapon'
-      %td.gear_slot
+      %td.gear_slot#secondary_weapon
         = render "partials/gear_slot", :title => 'Secondary Weapon'
     %tr
       %td.report_cell
-      %td.gear_slot
+      %td.gear_slot#ability_1
         = render "partials/gear_slot", :title => 'Ability 1'
-      %td.gear_slot
+      %td.gear_slot#ability_2
         = render "partials/gear_slot", :title => 'Ability 2'
     %tr
       %td.report_cell
-      %td.gear_slot
+      %td.gear_slot#ability_3
         = render "partials/gear_slot", :title => 'Ability 3'
-      %td.gear_slot
+      %td.gear_slot#HKM
         = render "partials/gear_slot", :title => 'HKM'
     %tr
       %td.report_cell
-      %td.gear_slot
+        %button#post_cookie{type: "button"} Post cookie
+        %button#read_cookie{type: "button"} Read cookie
+      %td.gear_slot#passive
         = render "partials/gear_slot", :title => 'Passive'
-      %td.gear_slot
+      %td.gear_slot#plating
         = render "partials/gear_slot", :title => 'Plating'
     %tr
       %td.report_cell
@@ -61,9 +63,9 @@
         %button#reset_CPUs_button{type: "button"} Reset CPUs
         %br
         %button#load_default_values{type: "button"} Load Default Values
-      %td.gear_slot
+      %td.gear_slot#servos
         = render "partials/gear_slot", :title => 'Servos'
-      %td.gear_slot
+      %td.gear_slot#jumpjets
         = render "partials/gear_slot", :title => 'Jumpjets'
 %br
 
