@@ -135,8 +135,17 @@ $ ->
 
   # RUN AT PAGE LOAD
 
-  cookie_data = JSON.parse( $.cookie('CPU_Analyst_frame_data') )
+  # cookie_data = JSON.parse( $.cookie('CPU_Analyst_frame_data') )
+  # reset_all_fields()
+  # populate_page(cookie_data)
+
+  cookie = $.cookie('CPU_Analyst_frame_data')
+  try
+    session_data = JSON.parse( cookie )
+  catch e
+    # debugging statement should not be published to live site
+    # console.log("catching JSON parse error: #{ e }")
   reset_all_fields()
-  populate_page(cookie_data)
+  populate_page(session_data)
 
   # END RUN AT PAGE LOAD
