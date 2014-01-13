@@ -2,7 +2,10 @@
 $ ->
 
   $('#post_cookie').click ->
-    $.cookie('CPU_Analyst_frame_data', JSON.stringify(build_frame_data()))
+    console.log('post cookie clicked')
+    save_session()
 
   $('#read_cookie').click ->
-    populate_page_from_object(JSON.parse( $.cookie('CPU_Analyst_frame_data') ))
+    console.log('read cookie clicked')
+    populate_page(JSON.parse( $.cookie('CPU_Analyst_frame_data') ))
+

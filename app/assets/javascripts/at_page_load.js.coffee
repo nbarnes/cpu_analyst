@@ -17,6 +17,43 @@ $ ->
                    [0.70, 0.89],
                    [0.50, 0.94]]
 
+  build_zeroes = () ->
+    console.log('build_zeroes called')
+    return zeroes =
+      servos__CPUs: 0
+      servos__base_mass_field: "0.00"
+      servos__base_power_field: "0.00"
+      HKM__CPUs: 0
+      HKM__base_mass_field: "0.00"
+      HKM__base_power_field: "0.00"
+      ability_1__CPUs: 0
+      ability_1__base_mass_field: "0.00"
+      ability_1__base_power_field: "0.00"
+      ability_2__CPUs: 0
+      ability_2__base_mass_field: "0.00"
+      ability_2__base_power_field: "0.00"
+      ability_3__CPUs: 0
+      ability_3__base_mass_field: "0.00"
+      ability_3__base_power_field: "0.00"
+      jumpjets__CPUs: 0
+      jumpjets__base_mass_field: "0.00"
+      jumpjets__base_power_field: "0.00"
+      passive__CPUs: 0
+      passive__base_mass_field: "0.00"
+      passive__base_power_field: "0.00"
+      plating__CPUs: 0
+      plating__base_mass_field: "0.00"
+      plating__base_power_field: "0.00"
+      primary_weapon__CPUs: 0
+      primary_weapon__base_mass_field: "0.00"
+      primary_weapon__base_power_field: "0.00"
+      secondary_weapon__CPUs: 0
+      secondary_weapon__base_mass_field: "0.00"
+      secondary_weapon__base_power_field: "0.00"
+
+  window.save_session = () ->
+    $.cookie('CPU_Analyst_frame_data', JSON.stringify(build_frame_data()))
+
   window.current_global_cpu_count = () ->
     total_CPUs = 0
     $('.gear_slot').each ->
@@ -44,7 +81,7 @@ $ ->
     adjusted_power_field = gear_slot.find('.adjusted_power_field')
     adjusted_power_field.val ( (base_power * CPU_mods[CPU_count]).toFixed(2) )
 
-    # $.cookie('CPU_Analyst_frame_data', JSON.stringify(build_frame_data()))
+    save_session()
     recalculate_total_mass_and_power()
 
   window.recalculate_total_mass_and_power = () ->
@@ -63,13 +100,6 @@ $ ->
 
     $("#total_CPUs").html(current_global_cpu_count())
 
-  window.reset_all_fields = () ->
-    $('.constraint_field').each ->
-      $(this).val(0.toFixed(2))
-    $('.gear_slot').each ->
-      set_CPUs($(this), 0)
-    recalculate_total_mass_and_power()
-
   window.set_CPUs = (gear_slot, num) ->
     gear_slot.data('cpu_count', num)
     set_CPU_images(gear_slot, num)
@@ -78,18 +108,20 @@ $ ->
   window.build_frame_data = () ->
     frame_data = new Object()
     $('.gear_slot').each ->
-      mass_tag = $(this).attr('id') + '-base_mass_field'
-      power_tag = $(this).attr('id') + '-base_power_field'
-      cpu_tag = $(this).attr('id') + '-CPUs'
+      mass_tag = $(this).attr('id') + '__base_mass_field'
+      power_tag = $(this).attr('id') + '__base_power_field'
+      cpu_tag = $(this).attr('id') + '__CPUs'
 
       frame_data[mass_tag] = $(this).find('.base_mass_field').val()
       frame_data[power_tag] = $(this).find('.base_power_field').val()
       frame_data[cpu_tag] = $(this).data('cpu_count')
     return frame_data
 
-  window.populate_page_from_object = (frame_data) ->
-    for own key, value of frame_data
-      split_key = key.split('-')
+  window.populate_page = (source) ->
+    console.log('populating page with:')
+    console.log(source)
+    for own key, value of source
+      split_key = key.split('__')
       slot_id = split_key[0]
       constraint_id = split_key[1]
       gear_slot = $("#" + slot_id)
@@ -101,9 +133,13 @@ $ ->
     $('.gear_slot').each ->
       update_gear_slot($(this))
 
+  window.reset_all_fields = () ->
+    populate_page(build_zeroes())
+
   # RUN AT PAGE LOAD
 
+  cookie_data = JSON.parse( $.cookie('CPU_Analyst_frame_data') )
   reset_all_fields()
-  populate_page_from_object(JSON.parse( $.cookie('CPU_Analyst_frame_data') ))
+  populate_page(cookie_data)
 
   # END RUN AT PAGE LOAD
