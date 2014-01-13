@@ -13,7 +13,6 @@ $ ->
     populate_page(build_defaults())
 
   build_defaults = () ->
-    console.log('build_zeroes called')
     return defaults =
       HKM__CPUs: 3
       HKM__base_mass_field: "150.00"

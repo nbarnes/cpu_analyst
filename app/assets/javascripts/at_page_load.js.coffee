@@ -18,7 +18,6 @@ $ ->
                    [0.50, 0.94]]
 
   build_zeroes = () ->
-    console.log('build_zeroes called')
     return zeroes =
       servos__CPUs: 0
       servos__base_mass_field: "0.00"
@@ -118,8 +117,6 @@ $ ->
     return frame_data
 
   window.populate_page = (source) ->
-    console.log('populating page with:')
-    console.log(source)
     for own key, value of source
       split_key = key.split('__')
       slot_id = split_key[0]
