@@ -8,9 +8,15 @@
 # You can use `rake secret` to generate a secure secret key.
 
 # Make sure your secret_key_base is kept private
-# if you're sharing your code publicly.
+# # if you're sharing your code publicly.
 
-CpuAnalyst::Application.config.secret_token = if Rails.env.development? || Rails.env.test?
+# CpuAnalyst::Application.config.secret_token = if Rails.env.development? || Rails.env.test?
+#   ('x' * 30) # meets minimum requirement of 30 chars long
+# else
+#   ENV['RAILS_SECRET_KEY_BASE']
+# end
+
+CpuAnalyst::Application.config.secret_key_base = if Rails.env.development? || Rails.env.test?
   ('x' * 30) # meets minimum requirement of 30 chars long
 else
   ENV['RAILS_SECRET_KEY_BASE']

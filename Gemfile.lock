@@ -47,6 +47,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.1.0)
+      capybara (~> 2.0, >= 2.0.2)
+      json
     code_analyzer (0.4.3)
       sexp_processor
     coderay (1.1.0)
@@ -219,6 +222,7 @@ PLATFORMS
 
 DEPENDENCIES
   brakeman
+  capybara-webkit
   coffee-rails (~> 4.0.0)
   coveralls
   figaro
@@ -226,6 +230,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-cookie-rails
   jquery-rails
+  minitest-rails
   minitest-rails-capybara
   pg
   pry-debugger

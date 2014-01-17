@@ -8,8 +8,8 @@ require "minitest/rails"
 require "minitest/rails/capybara"
 require 'coveralls'
 
-# require "capybara/webkit"
-# Capybara.javascript_driver = :webkit
+require "capybara/webkit"
+Capybara.javascript_driver = :webkit
 
 # Uncomment for awesome colorful output
 require "minitest/pride"
