@@ -1,29 +1,27 @@
-# require "test_helper"
+require "test_helper"
 
-# feature "Timestamps on posts" do
+feature "Constraint summations" do
 
-#   scenario "Mass summation displays correctly" do, :js => true do
-#     visit root_path
+  scenario "Mass summation displays correctly", js: true do
+    visit root_path
 
-#     page.find('#total_mass').must_equal '0'
+    page.find('#total_mass').must_have_content '0'
 
-#     click('Load Default Values')
+    click_on 'Load Default Values'
 
-#     page.find('#total_mass').must_equal '1555.50'
+    page.find('#total_mass').must_have_content '1555.50'
+  end
 
-#   end
+  scenario "Power summation displays correctly", js: true do
+    visit root_path
 
-#   scenario "Power summation displays correctly" do, :js => true do
-#     visit root_path
+    page.find('#total_power_display').must_have_content 'Total Power: 0 / 1000'
+    page.find('#excess_power').must_have_content '1000 Excess Power'
 
-#     page.find('#total_power_display').must_equal 'Total Power: 0 / 1000'
-#     page.find('#excess_power').must_equal '1000 Excess Power'
+    click_on 'Load Default Values'
 
+    page.find('#total_power_display').must_have_content 'Total Power: 833 / 1000'
+    page.find('#excess_power').must_have_content '167 Excess Power'
+  end
 
-#     click('Load Default Values')
-
-#     page.find('#total_power_display').must_equal 'Total Power: 833 / 1000'
-#     page.find('#excess_power').must_equal '167 Excess Power'
-#   end
-
-# end
+end
