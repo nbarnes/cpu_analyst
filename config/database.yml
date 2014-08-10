@@ -1,8 +1,7 @@
 
-
 development:
   adapter: postgresql
-  database: development_postgres
+  database: cpuanalyst_development_postgres
   host: localhost
   pool: 5
   timeout: 5000
@@ -12,14 +11,14 @@ development:
 # Do not set this db to the same as development or production.
 test:
   adapter: postgresql
-  database: test_postgres
+  database: cpuanalyst_test_postgres
   host: localhost
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
-  database: production_postgres
+  database: cpuanalyst_production_postgres
   host: localhost
   pool: 5
   timeout: 5000

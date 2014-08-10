@@ -148,4 +148,6 @@ $ ->
   reset_all_fields()
   populate_page(session_data)
 
+  $.colorbox({ width:"30%", inline:true, href:"#sunsetting_content" })
+
   # END RUN AT PAGE LOAD

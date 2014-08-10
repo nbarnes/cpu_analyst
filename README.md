@@ -1,5 +1,12 @@
 [![Build Status](https://travis-ci.org/nbarnes/cpu_analyst.png)](https://travis-ci.org/nbarnes/cpu_analyst)[![Code Climate](https://codeclimate.com/github/nbarnes/cpu_analyst.png)](https://codeclimate.com/github/nbarnes/cpu_analyst)[![Security Status](http://rails-brakeman.com/nbarnes/cpu_analyst.png)](http://rails-brakeman.com/nbarnes/cpu_analyst)
 
+ANNOUCEMENT
+===========
+Due to game system changes in Firefall, detailed at http://www.firefallthegame.com/news/path-to-launch-blog-1-progression-and-itemization and http://www.firefallthegame.com/news/path-to-launch-blog-2-resources-crafting-professions-and-more, the
+Firefall CPU_Analyst is obsolete. This project is unlikely to recieve further
+updates. The live site remains deployed at Heroku
+(http://www.cpu-analyst.heroku.com) for anybody that cares to experience a
+little of the old Firefall magic.
 
 CPU_Analyst
 ===========
