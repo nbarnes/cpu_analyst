@@ -2,7 +2,7 @@
 
 ANNOUCEMENT
 ===========
-Due to game system changes in Firefall, detailed at http://www.firefallthegame.com/news/path-to-launch-blog-1-progression-and-itemization and http://www.firefallthegame.com/news/path-to-launch-blog-2-resources-crafting-professions-and-more, the
+Due to game system changes in Firefall, detailed at <http://www.firefallthegame.com/news/path-to-launch-blog-1-progression-and-itemization> and <http://www.firefallthegame.com/news/path-to-launch-blog-2-resources-crafting-professions-and-more>, the
 Firefall CPU_Analyst is obsolete. This project is unlikely to recieve further
 updates. The live site remains deployed at Heroku
 (http://www.cpu-analyst.heroku.com) for anybody that cares to experience a
