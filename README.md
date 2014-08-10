@@ -12,7 +12,8 @@ CPU_Analyst
 ===========
 
 CPU_Analyst is a frame constraints analysis and CPU recommendation tool for
-Red5's online game, Firefall.
+Red5's online game, Firefall.  The live deployment the Analyst can be found
+at http://cpu-analyst.heroku.com/
 
 Overview
 ========
